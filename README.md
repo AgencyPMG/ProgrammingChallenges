@@ -19,3 +19,8 @@ Just about anything you like, but we work mostly with...
 
 Hopefully less than about an hour. If you find a problem is taking a long time,
 let us know! Chances are it's probably too big for this set of challenges.
+
+## How do I submit my answer?
+
+Send an email to tech@pmg.com or reach out to the person who gave you the
+challenge.
