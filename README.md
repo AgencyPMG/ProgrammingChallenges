@@ -17,8 +17,10 @@ Just about anything you like, but we work mostly with...
 
 ## How long should I spend on this?
 
-Hopefully less than about an hour. If you find a problem is taking a long time,
-let us know! Chances are it's probably too big for this set of challenges.
+Take your time and do your best work. The code you produce here should be a very
+good indicator of how you would code in a production environment.
+If you find a problem is taking a long time, let us know!
+Chances are it's probably too big for this set of challenges.
 
 ## Can I use third-party libraries?
 
