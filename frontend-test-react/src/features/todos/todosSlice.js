@@ -6,11 +6,12 @@ export const todosSlice = createSlice({
   name: 'todos',
   initialState: todosAdapter.getInitialState(),
   reducers: {
-    todoAdded: todosAdapter.addOne
+    todoAdded: todosAdapter.addOne,
+    todoUpdated: todosAdapter.updateOne
   },
 })
 
-export const { todoAdded } = todosSlice.actions
+export const { todoAdded, todoUpdated } = todosSlice.actions
 
 export const {
   selectAll: selectAllTodos,
