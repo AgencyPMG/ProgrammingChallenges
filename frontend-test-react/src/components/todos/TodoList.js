@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CompleteRemoveButton from './CompleteRemoveButton';
 import Input from './Input';
+import TodoItems from './TodoItems';
 import TodoItem from './TodoItem';
 
 export function TodoList(props) {
@@ -86,20 +87,11 @@ export function TodoList(props) {
                         addTodo={addTodo}
                     />
                 </div>
-                <div>
-                    {todos.map((item, i) => {                     
-                        return (
-                            <TodoItem
-                                key={i}
-                                item={item}
-                                i={i}
-                                toggleTodo={toggleTodo}
-                                removeTodo={removeTodo}
-                            />
-                        );
-                    })}
-                    
-                </div>
+                <TodoItems
+                    todos={todos}
+                    toggleTodo={toggleTodo}
+                    removeTodo={removeTodo}    
+                />
             </div>
         </div>
     );
