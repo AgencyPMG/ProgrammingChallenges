@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import CompleteRemoveButton from './CompleteRemoveButton';
 import Input from './Input';
 import TodoItems from './TodoItems';
-import TodoItem from './TodoItem';
 
 export function TodoList(props) {
     const [todos, setTodos] = useState(props.todos); // or []
@@ -81,11 +80,13 @@ export function TodoList(props) {
                         completeAll={completeAll}
                         visible={todos.length > 0 ? true : false} 
                     />
-                    <Input
-                        newTodo={newTodo}
-                        updateInput={updateInput}
-                        addTodo={addTodo}
-                    />
+                    <div className="flex my-8">
+                        <Input
+                            newTodo={newTodo}
+                            updateInput={updateInput}
+                            addTodo={addTodo}
+                        />
+                    </div>
                 </div>
                 <TodoItems
                     todos={todos}
