@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function ToDoItem({ item, i, toggleTodo, removeTodo}) {
+export default function ToDoItem({ item, i, toggleTodo, removeTodo }) {
   return (
-    <div key={i} className="flex mb-4 items-center justify-between">                                
+    <div className="flex mb-4 items-center justify-between">                                
         <div>
             <div
                 className={`flex-grow text-gray-darkes ${item.status === 'incomplete' ? '' : 'line-through'}`}
