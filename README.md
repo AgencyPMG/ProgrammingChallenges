@@ -29,6 +29,4 @@ other project.
 
 ## How do I submit my answer?
 
-Send an email to tech@pmg.com or reach out to the person who gave you the
-challenge. Feel free to send an archive (a tar or zipball are fine) or link us
-to a public pastebin (github gist, etc) or repository (bitbucket, github, etc).
+Follow the instructions you recieved for how to submit. 
