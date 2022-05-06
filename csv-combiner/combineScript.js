@@ -20,8 +20,8 @@ const csv = require('csv-parser');
 const csvWriter = require('csv-write-stream')
 
 //get the files that are passed in command line arguments by skipping the first 2
-//For example: node combiner.js ./fixtures/accessories.csv ./fixtures/clothing.csv ./household_cleaners.csv combine.csv
-//the argv array will contain ['node', 'combiner.js', './fixtures/accessories.csv', './fixtures/clothing.csv'. './fixtures/householdc_cleaners.csv', 'combine.csv']
+//For example: node combinedScript.js ./fixtures/accessories.csv ./fixtures/clothing.csv ./household_cleaners.csv combine.csv
+//the argv array will contain ['node', 'combinedScript.js', './fixtures/accessories.csv', './fixtures/clothing.csv'. './fixtures/householdc_cleaners.csv', 'combine.csv']
 //by slicing the first 2 items in the array, we got the files array as: ['./fixtures/accessories.csv', './fixtures/clothing.csv'. './fixtures/householdc_cleaners.csv', 'combine.csv'] 
 let files = process.argv.slice(2);
 
@@ -39,11 +39,11 @@ writer.pipe(writeStream);
 
 //function to process a file
 //reads the file as stream, then add file name to each row, and write to csv file
-function processFile(file) {
-    //use Promise for asynchronous handling of ile
+async function processFile(file) {
+    //use Promise for asynchronous handling of file
     return new Promise((resolve, reject) => {
         //read the file in stream
-        fs.createReadStream(files[file])
+        const readable = fs.createReadStream(files[file])
 
         //on error return error
         .on('error', error => {
@@ -55,8 +55,7 @@ function processFile(file) {
         .pipe(csv())
 
         //on data stream
-        .on('data', (row) => {
-
+        .on('data', async(row) => {
             //get the file name from the files array
             //call path.basename() to retrieve the file name only
             //For example path.basename("./fixtures/accessories.csv") will return accessories.csv
@@ -66,11 +65,24 @@ function processFile(file) {
             row["filename"] = filename;
 
             //remove backslash to clean up data
-            //For example: \"Gingham\" Shirt => "Gingham" Shirt
+            //For example: "\"Gingham\" Shorts" => ""Gingham" Shorts"
             row["category"] = row["category"].replace(/\\/g, '');
 
             //write row to csv file
-            writer.write(row);
+            const canWriteMore = writer.write(row);
+
+            //handle when write buffer is full
+            if (!canWriteMore) {
+                //if write buffer is full pause the read stream
+                readable.pause();
+
+                //wait for buffer to drain
+                await new Promise((resolve) => writeStream.once('drain', resolve));
+            }
+
+            //resume the read stream
+            readable.resume();
+
         })
 
         //on end return success
@@ -116,4 +128,6 @@ async function combine() {
 }
 
 //call combine() function to execute
-combine();
+(async() => await combine())();
+
+module.exports = combine;
