@@ -1,0 +1,21 @@
+{
+    "name": "csv-combiner",
+    "version": "1.0.0",
+    "description": "Write a command line program that takes several CSV files as arguments. Each CSV file (found in the `fixtures` directory of this repo) will have the same columns. Your script should output a new CSV file to `stdout` that contains the rows from each of the inputs along with an additional column that has the filename from which the row came (only the file's basename, not the entire path). Use `filename` as the header for the additional column.",
+    "main": "combineScript.js",
+    "scripts": {
+        "test": "mocha"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "jest": "^28.0.3",
+        "mocha": "^10.0.0"
+    },
+    "dependencies": {
+        "chai": "^4.3.6",
+        "mocha-sinon": "^2.1.2",
+        "sinon": "^13.0.2",
+        "sinon-chai": "^3.7.0"
+    }
+}
