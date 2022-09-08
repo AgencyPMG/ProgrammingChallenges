@@ -1,0 +1,3 @@
+.terraform*
+public_key
+terraform.tfstate*
