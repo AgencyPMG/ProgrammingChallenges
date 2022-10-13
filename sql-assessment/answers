@@ -1,0 +1,34 @@
+Question #1:
+Select geo, sum(clicks)
+From marketing_data
+Group by geo;
+
+
+
+Question #2:
+Select store_location, sum(revenue)
+From store_revenue 
+Group by store_location;
+
+Question #3:
+SELECT marketing_data.date,  marketing_data.geo, marketing_data.impressions, marketing_data.clicks, store_revenue.revenue
+FROM marketing_data FULL OUTER JOIN store_revenue ON marketing_data.date = store_revenue.date and 'United States-' || marketing_data.geo = store_revenue.store_location
+
+# Question #4:
+Select *, Round(new.clicks*100/new.impressions,2) as RTC
+From(SELECT marketing_data.date,  marketing_data.geo, marketing_data.impressions, marketing_data.clicks, store_revenue.revenue, store_revenue.brand_id
+FROM marketing_data FULL OUTER JOIN store_revenue ON marketing_data.date = store_revenue.date and 'United States-' || marketing_data.geo = store_revenue.store_location) as new
+Where RTC <= 5
+Order by RTC DESC
+Limit 1;;
+I consider the RTC which represent click-through rate = number of click/impression and order by Descending, we can choose top brand in different states of US.
+The higher the RTC, the more efficient store which is CA brand_id 1. Also, we need to consider some uncommon errors which define RTC > 5%, ignore those.
+
+# problem 5:
+Select a.store_location
+from
+(Select store_location, sum(revenue) as sum_rev
+From store_revenue 
+Group by store_location) as a
+Order by a.sum_rev DESC
+Limit 10;
