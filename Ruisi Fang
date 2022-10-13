@@ -3,25 +3,49 @@ select * from marketing_data limit 2;​
 
 
 Question #1 Generate a query to get the sum of the clicks of the marketing data​
-SELECT SUM(clicks) sum_clicks
+SELECT SUM(clicks) AS sum_clicks
 FROM marketing_data
+
 1792
 
 Question #2 Generate a query to gather the sum of revenue by geo from the store_revenue table​
-SELECT SUM(revenue) sum_revenue
+SELECT SUM(revenue) AS sum_revenue
 FROM store_revenue
+
 296850
 
 
 Question #3 Merge these two datasets so we can see impressions, clicks, and revenue together by date and geo. Please ensure all records from each table are accounted for.
-SELECT MKT.date, MKT.geo, SUM(MKT.impressions) total_impressions, SUM(MKT.clicks) total_clicks, SUM(SR.revenue) total_revenue
-FROM marketing_data MKT
-FULL JOIN store_revenue SR
+SELECT MKT.date, MKT.geo, AVG(MKT.impressions) AS impressions, AVG(MKT.clicks) AS clicks, SUM(SR.revenue) AS total_revenue
+FROM marketing_data AS MKT
+FULL JOIN store_revenue AS SR
 ON MKT.date = SR.date AND MKT.geo = RIGHT(SR.store_location, 2)
 GROUP BY MKT.date, MKT.geo
 
+I use the function `AVG` to avoid counting impressions and clicks twice when joining tables, because there are 2 brands per store.
+
 
 Question #4 In your opinion, what is the most efficient store and why?​
+SELECT MKT.geo, (SUM(SR.revenue)/SUM(clicks)) AS revenue_per_click
+FROM marketing_data AS MKT
+INNER JOIN store_revenue AS SR
+ON MKT.date = SR.date AND MKT.geo = RIGHT(SR.store_location, 2)
+GROUP BY MKT.geo
+ORDER BY revenue_per_click DESC
+
+I consider the store in CA as the most efficient store because it has the highest revenue per click.
+
 
 Question #5 (Challenge) Generate a query to rank in order the top 10 revenue producing states​
+SELECT TOP 10 RIGHT(store_location, 2) AS State, SUM(revenue) AS total_revenue
+FROM store_revenue
+GROUP BY store_location
+ORDER BY total_revenue DESC
 
+OR
+
+SELECT RIGHT(store_location, 2) AS State, SUM(revenue) AS total_revenue
+FROM store_revenue
+GROUP BY store_location
+ORDER BY total_revenue DESC
+LIMIT 10
