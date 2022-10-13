@@ -36,7 +36,7 @@ marketing_data contains ad impression and click data by date and location:
  Generate a query to get the sum of the clicks of the marketing data
 ​
 *  Question #2
- Generate a query to gather the sum of revenue by geo from the store_revenue table
+ Generate a query to gather the sum of revenue by store_location from the store_revenue table
 ​
 *  Question #3
  Merge these two datasets so we can see impressions, clicks, and revenue together by date
