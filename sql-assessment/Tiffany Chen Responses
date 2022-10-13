@@ -1,0 +1,105 @@
+# SQL Challenge 
+
+The database contains two tables, store_revenue and marketing_data.  Refer to the two CSV
+files, store_revenue and marketing_data to understand how these tables have been created.
+
+store_revenue contains revenue by date, brand ID, and location:
+
+ >  create table store_revenue (
+ >     id int not null primary key auto_increment,
+ >    date datetime,
+ >    brand_id int,
+ >    store_location varchar(250),
+ >    revenue float  
+ >  );
+
+marketing_data contains ad impression and click data by date and location:
+
+> create table marketing_data (
+>  id int not null primary key auto_increment,
+>  date datetime,
+>  geo varchar(2),
+>  impressions float,
+>  clicks float
+> );
+
+### Please provide a SQL statement under each question.
+
+* Question #0 (Already done for you as an example)
+ Select the first 2 rows from the marketing data
+​
+>  select *
+>  from marketing_data
+> limit 2;
+​
+*  Question #1
+ Generate a query to get the sum of the clicks of the marketing data
+ > SELECT SUM(clicks) AS total_clicks
+ > FROM glp-assessment.glp_project.marketing_data 
+​
+*  Question #2
+ Generate a query to gather the sum of revenue by store_location from the store_revenue table
+ > SELECT store_location, 
+   SUM(revenue) AS total_revenue
+ > FROM glp-assessment.glp_project.store_revenue
+ > GROUP BY store_location
+​
+*  Question #3
+ Merge these two datasets so we can see impressions, clicks, and revenue together by date
+and geo.
+ Please ensure all records from each table are accounted for.
+ > SELECT
+  store_revenue.date,
+  RIGHT(store_revenue.store_location, 2) AS geo,
+  marketing_data.*,
+  
+  store_revenue.revenue,
+  store_revenue.brand_id
+ > FROM glp-assessment.glp_project.store_revenue 
+ > FULL OUTER JOIN glp-assessment.glp_project.marketing_data ON store_revenue.date = marketing_data.date 
+  AND RIGHT(store_revenue.store_location,2) = marketing_data.geo 
+ > ORDER BY marketing_data.date 
+ 
+​
+* Question #4
+ In your opinion, what is the most efficient store and why?
+ 
+ In my opinion, the store with brand_id = 2 in CA is the most efficient store because when comparing the store's total revenue per click and average revenue per click for both brands at that location, it had the highest revenue per click (757.18387096774188 and 1302.99359559, respectively). Additionally, this brand's store's total revenue per impression and average revenue per impression of both brands was also the highest(10.40041650 and 8.958886174, respectively).
+ 
+ > SELECT
+   marketing_data.geo, 
+   store_revenue.brand_id,
+   SUM(store_revenue.revenue) AS total_revenue,
+   SUM(marketing_data.clicks) AS total_clicks,
+   SUM(store_revenue.revenue)/SUM(marketing_data.clicks) AS total_revenue_per_click,
+   AVG(store_revenue.revenue/marketing_data.clicks) AS average_revenue_per_click 
+ > FROM glp-assessment.glp_project.store_revenue 
+ > FULL OUTER JOIN glp-assessment.glp_project.marketing_data ON store_revenue.date = marketing_data.date 
+  AND RIGHT(store_revenue.store_location,2) = marketing_data.geo 
+ > WHERE marketing_data.geo IS NOT NULL
+ > GROUP BY marketing_data.geo,store_revenue.brand_id 
+ > ORDER BY average_revenue_per_click DESC
+
+ > SELECT
+  marketing_data.geo, 
+  store_revenue.brand_id,
+  SUM(store_revenue.revenue) AS total_revenue,
+  SUM(marketing_data.impressions) AS total_impressions,
+  SUM(store_revenue.revenue)/SUM(marketing_data.impressions) AS total_revenue_per_impression,
+  AVG(store_revenue.revenue/marketing_data.impressions) AS average_revenue_per_impression
+ > FROM glp-assessment.glp_project.store_revenue 
+ > FULL OUTER JOIN glp-assessment.glp_project.marketing_data ON store_revenue.date = marketing_data.date 
+  AND RIGHT(store_revenue.store_location,2) = marketing_data.geo 
+ > WHERE marketing_data.geo IS NOT NULL
+ > GROUP BY marketing_data.geo,store_revenue.brand_id 
+ > ORDER BY average_revenue_per_impression DESC
+ 
+​
+* Question #5 (Challenge)
+ Generate a query to rank in order the top 10 revenue producing states
+ > SELECT RIGHT(store_revenue.store_location, 2) AS state, SUM(store_revenue.revenue) AS total_revenue,
+ > FROM glp-assessment.glp_project.store_revenue 
+ > WHERE store_revenue.revenue IS NOT NULL
+ > GROUP BY store_revenue.store_location
+ > limit 10
+​
