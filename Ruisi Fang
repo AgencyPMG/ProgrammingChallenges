@@ -1,3 +1,5 @@
+My answers for the question is based on Microsoft SQL Server. Some code may differ from MySQL.
+
 Question #0 (Already done for you as an example) Select the first 2 rows from the marketing data​
 select * from marketing_data limit 2;​
 
@@ -6,13 +8,11 @@ Question #1 Generate a query to get the sum of the clicks of the marketing data�
 SELECT SUM(clicks) AS sum_clicks
 FROM marketing_data
 
-1792
 
 Question #2 Generate a query to gather the sum of revenue by geo from the store_revenue table​
-SELECT SUM(revenue) AS sum_revenue
+SELECT RIGHT(store_location, 2) AS state, SUM(revenue) AS sum_revenue
 FROM store_revenue
-
-296850
+GROUP BY store_location
 
 
 Question #3 Merge these two datasets so we can see impressions, clicks, and revenue together by date and geo. Please ensure all records from each table are accounted for.
