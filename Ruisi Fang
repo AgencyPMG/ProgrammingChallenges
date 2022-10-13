@@ -1,0 +1,7 @@
+library (readr)
+
+urlfile1="https://raw.githubusercontent.com/AgencyPMG/ProgrammingChallenges/master/sql-assessment/marketing_data.csv"
+urlfile2="https://raw.githubusercontent.com/AgencyPMG/ProgrammingChallenges/master/sql-assessment/store_revenue.csv"
+
+marketing_data <- read_csv(url(urlfile1))
+store_revenue <- read_csv(url(urlfile2))
