@@ -1,7 +1,20 @@
-library (readr)
+Question #0 (Already done for you as an example) Select the first 2 rows from the marketing data​
 
-urlfile1="https://raw.githubusercontent.com/AgencyPMG/ProgrammingChallenges/master/sql-assessment/marketing_data.csv"
-urlfile2="https://raw.githubusercontent.com/AgencyPMG/ProgrammingChallenges/master/sql-assessment/store_revenue.csv"
+select * from marketing_data limit 2;​
 
-marketing_data <- read_csv(url(urlfile1))
-store_revenue <- read_csv(url(urlfile2))
+
+Question #1 Generate a query to get the sum of the clicks of the marketing data​
+
+SELECT SUM(clicks) sum_clicks
+FROM marketing_data
+1792
+
+Question #2 Generate a query to gather the sum of revenue by geo from the store_revenue table​
+
+SELECT SUM(revenue) sum_revenue
+FROM store_revenue
+296850
+
+Question #3 Merge these two datasets so we can see impressions, clicks, and revenue together by date and geo. Please ensure all records from each table are accounted for.​
+Question #4 In your opinion, what is the most efficient store and why?​
+Question #5 (Challenge) Generate a query to rank in order the top 10 revenue producing states​
