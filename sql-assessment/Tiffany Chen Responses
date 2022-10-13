@@ -58,7 +58,7 @@ and geo.
  > FROM glp-assessment.glp_project.store_revenue 
  > FULL OUTER JOIN glp-assessment.glp_project.marketing_data ON store_revenue.date = marketing_data.date 
   AND RIGHT(store_revenue.store_location,2) = marketing_data.geo 
- > ORDER BY marketing_data.date 
+ > ORDER BY store_revenue.date, marketing_data.date
  
 ​
 * Question #4
