@@ -9,12 +9,16 @@ You will need to copy your public key into this directory and rename it to
 note the variables and outputs and implement the module code in the `instance`
 subdirectory.
 
+When we receive your solution, we will init, plan, and apply it to our AWS
+environment in order to evaluate that it completes without error and implements
+the requirements completely.
+
 ## Acceptance Criteria
 
-- The VPC and security group community modules are used in `vpc.tf` and will 
-  be included during `terraform init`.  They should not be reimplemented.
 - Your solution is expected to init, plan, and apply cleanly without any
   errors.
+- The VPC and security group community modules are used in `vpc.tf` and will 
+  be included during `terraform init`.  They should not be reimplemented.
 - Your solution should output the public IP and instance ID after applying.
 - When reviewing your solution, we should be able to ssh in to the instance at
   using the attached elastic IP and get in using a public key we provide.
