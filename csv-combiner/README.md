@@ -16,8 +16,9 @@ Both functions together can provide a quick combination for small files that wil
 There are two ways of running the project:
 You can run 
 
-	`python csvcombinersolution/__main__.py fixtures/accessories.csv fixtures/clothing.csv combined.csv` 
-	`python3 csvcombinersolution/__main__.py fixtures/accessories.csv fixtures/clothing.csv combined.csv` 
+`python csvcombinersolution/__main__.py fixtures/accessories.csv fixtures/clothing.csv combined.csv` 
+
+`python3 csvcombinersolution/__main__.py fixtures/accessories.csv fixtures/clothing.csv combined.csv` 
 
 or other related commands based on your python version
 to convert and combine the files
