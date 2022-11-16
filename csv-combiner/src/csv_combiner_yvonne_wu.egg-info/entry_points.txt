@@ -1,0 +1,2 @@
+[console_scripts]
+wisdom = wisdom.__main__:main

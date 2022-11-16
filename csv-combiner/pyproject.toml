@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "csv-combiner-yvonne-wu"
+description = "An example of a package developed with pyenv, built with build using setuptools, uploaded to PyPI using twine, and distributed via pip."
+version = "0.0.7"
+authors = [
+  { name="Yvonne Wu", email="yw4142@nyu.edu" },
+]
+license = { file = "LICENSE" }
+readme = "README.md"
+keywords = ["python", "package", "build", "tutorial"]
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    "Operating System :: OS Independent",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.urls]
+"Homepage" = "https://github.com/Yvonne511/PMG-ProgrammingChallenges-Yvonne-Wu/tree/master/csv-combiner"
+"Repository" = "https://github.com/Yvonne511/PMG-ProgrammingChallenges-Yvonne-Wu/tree/master/csv-combiner.git"
+"Bug Tracker" = "https://github.com/Yvonne511/PMG-ProgrammingChallenges-Yvonne-Wu/tree/master/csv-combiner/issues"
+
+[project.scripts]
+wisdom = "wisdom.__main__:main"

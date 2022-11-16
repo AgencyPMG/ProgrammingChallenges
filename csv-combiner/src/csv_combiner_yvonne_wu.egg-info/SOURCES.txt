@@ -1,0 +1,12 @@
+LICENCE
+README.md
+pyproject.toml
+src/processfiles.py
+src/csv-combiner-yvonne-wu/__init__.py
+src/csv-combiner-yvonne-wu/main.py
+src/csv_combiner_yvonne_wu.egg-info/PKG-INFO
+src/csv_combiner_yvonne_wu.egg-info/SOURCES.txt
+src/csv_combiner_yvonne_wu.egg-info/dependency_links.txt
+src/csv_combiner_yvonne_wu.egg-info/entry_points.txt
+src/csv_combiner_yvonne_wu.egg-info/requires.txt
+src/csv_combiner_yvonne_wu.egg-info/top_level.txt

@@ -1,3 +1,5 @@
+![Python build & test](https://github.com/Yvonne511/PMG-ProgrammingChallenges-Yvonne-Wu/csv-combiner/actions/workflows/build.yaml/badge.svg)
+
 # CSV Combiner
 
 Write a command line program that takes several CSV files as arguments. Each CSV
