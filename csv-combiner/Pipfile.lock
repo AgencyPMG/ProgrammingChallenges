@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "acbc8c4e7f2f98f1059b2a93d581ef43f4aa0c9741e64e6253adff8e35fbd99e"
+            "sha256": "a22f9b3f68f411d547ab78573762b0e66b899fcd3ab34f4a0ef624679f5f66b3"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -31,6 +31,10 @@
             ],
             "markers": "python_full_version >= '3.6.0'",
             "version": "==2.1.1"
+        },
+        "csv-combiner-solution": {
+            "editable": true,
+            "path": "."
         },
         "idna": {
             "hashes": [

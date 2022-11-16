@@ -1,0 +1,12 @@
+LICENCE
+README.md
+pyproject.toml
+src/csv_combiner_solution.egg-info/PKG-INFO
+src/csv_combiner_solution.egg-info/SOURCES.txt
+src/csv_combiner_solution.egg-info/dependency_links.txt
+src/csv_combiner_solution.egg-info/entry_points.txt
+src/csv_combiner_solution.egg-info/requires.txt
+src/csv_combiner_solution.egg-info/top_level.txt
+src/csvcombinersolution/__init__.py
+src/csvcombinersolution/__main__.py
+src/csvcombinersolution/processfiles.py

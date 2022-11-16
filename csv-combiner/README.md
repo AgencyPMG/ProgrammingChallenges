@@ -1,6 +1,46 @@
 ![Python build & test](https://github.com/Yvonne511/PMG-ProgrammingChallenges-Yvonne-Wu/csv-combiner/actions/workflows/build.yaml/badge.svg)
 
-# CSV Combiner
+# Solution Documentation
+There are four functions available for the project 
+#### processfileName()
+	It ensures that all file names being inputted are correct and have corresponding physical files
+
+#### processLargeFiles()
+	It combines all the files together as a final csv file based on the output path specified in the command line
+    During testing, it has the ability to process a cvs file of 8GB
+
+#### processfilesContent() and outputfile()
+	Both functions together can provide a quick combination for small files that will output file content in a neat way in the command line
+
+There are two ways of running the project:
+You can run 
+`python csvcombinersolution/__main__.py fixtures/accessories.csv fixtures/clothing.csv combined.csv` 
+or other related commands based on your python version
+to convert and combine the files
+You can also install package to run the progam
+
+### Setup
+
+#### Setup the virtual environment
+
+1. Install pipenv with `python3 -m pip install --user pipenv`
+2. Create the virtual environment and install this package `pip install -i https://test.pypi.org/simple/ csv-combiner-solution==1.0.1`
+3. Activate the environment with `pipenv shell`
+4. Exit the virtual environment with `exit`
+
+Build the package with `python -m build`
+
+#### Test with pytest
+
+1. Install pytest into your vitural environment with `pipenv install pytest`
+2. Run `python3 -m pytest` from the main directory
+
+# PyPi 
+
+PyPi: https://test.pypi.org/project/csv-combiner-solution/1.0.1/
+
+
+# CSV Combiner Question
 
 Write a command line program that takes several CSV files as arguments. Each CSV
 file (found in the `fixtures` directory of this repo) will have the same

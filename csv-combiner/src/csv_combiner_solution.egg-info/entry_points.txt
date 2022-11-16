@@ -1,0 +1,2 @@
+[console_scripts]
+processfiles = processfiles.__main__:main

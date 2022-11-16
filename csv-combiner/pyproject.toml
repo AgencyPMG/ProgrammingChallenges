@@ -3,9 +3,9 @@ requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "csv-combiner-yvonne-wu"
+name = "csv-combiner-solution"
 description = "An example of a package developed with pyenv, built with build using setuptools, uploaded to PyPI using twine, and distributed via pip."
-version = "0.0.7"
+version = "1.0.1"
 authors = [
   { name="Yvonne Wu", email="yw4142@nyu.edu" },
 ]
@@ -29,4 +29,4 @@ dev = ["pytest"]
 "Bug Tracker" = "https://github.com/Yvonne511/PMG-ProgrammingChallenges-Yvonne-Wu/tree/master/csv-combiner/issues"
 
 [project.scripts]
-wisdom = "wisdom.__main__:main"
+processfiles = "processfiles.__main__:main"

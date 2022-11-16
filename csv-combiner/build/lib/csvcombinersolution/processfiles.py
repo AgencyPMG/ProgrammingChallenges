@@ -27,14 +27,21 @@ def processfileName(file_paths):
             sys.exit(1)
     return surce_file
 
-def processfiles(source_files):
+def processfilesContent(source_files):
     # path = 'fixtures'
     # source_files = sorted(Path(path).glob('*.csv'))
     # Extrac file data
     result = pd.DataFrame()
     for file in source_files:
         file_content = pd.read_csv(file)
-        file_content['filename'] = file.name
+        file_content['filename'] = file.name.split('/')[-1]
+        # This part con contains further logic to process the data
+        # eg. file_content['column_name'] = file_content['column_name'].apply(lambda x: x.strip())
+        file_content['category'] = file_content['category'].apply(lambda x: x.replace('\"', '').replace('\\', ''))
+        # It can also iterate all the columns and apply the same logic
+        # for column in file_content.columns:
+        #    file_content[column] = file_content[column].apply(lambda x: x.replace('\"', '').replace('\\', ''))
+        #    ...
         result = pd.concat([file_content], ignore_index=True)
     return result
 
@@ -44,13 +51,3 @@ def outputfile(result, output_path):
     # Print the result in command line
     sys.stdout.write(tabulate(result, headers='keys', tablefmt='fancy_grid', showindex=False))
     #display(df)
-
-if __name__ == '__main__':
-    # Get the file path
-    file_paths = sys.argv[1:-1]
-    # Process the file name
-    source_files = processfileName(file_paths)
-    # Process the file
-    result = processfiles(source_files)
-    # Output the file
-    outputfile(result, sys.argv[-1])
