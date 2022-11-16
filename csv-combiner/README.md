@@ -2,19 +2,23 @@
 
 # Solution Documentation
 There are four functions available for the project 
+
 #### processfileName()
-	It ensures that all file names being inputted are correct and have corresponding physical files
+It ensures that all file names being inputted are correct and have corresponding physical files
 
 #### processLargeFiles()
-	It combines all the files together as a final csv file based on the output path specified in the command line
-    During testing, it has the ability to process a cvs file of 8GB
+It combines all the files together as a final csv file based on the output path specified in the command line
+During testing, it has the ability to process a cvs file of 8GB
 
 #### processfilesContent() and outputfile()
-	Both functions together can provide a quick combination for small files that will output file content in a neat way in the command line
+Both functions together can provide a quick combination for small files that will output file content in a neat way in the command line
 
 There are two ways of running the project:
 You can run 
-`python csvcombinersolution/__main__.py fixtures/accessories.csv fixtures/clothing.csv combined.csv` 
+
+	`python csvcombinersolution/__main__.py fixtures/accessories.csv fixtures/clothing.csv combined.csv` 
+	`python3 csvcombinersolution/__main__.py fixtures/accessories.csv fixtures/clothing.csv combined.csv` 
+
 or other related commands based on your python version
 to convert and combine the files
 You can also install package to run the progam
