@@ -15,6 +15,13 @@ the requirements completely.
 
 ## Acceptance Criteria
 
+- Do not use an open-source community terraform module.  You must implement
+  a module that creates the instance, ebs volume, elasitc IP, and attaches
+  those resources inside of the `instance/` subdirectory.
+- You should not need to modify the `tf` files in the `ec2-instance`
+  directory.  Your task is to create a module that implements the challenge
+  module interface (variables and outputs).  If you feel you need to modify
+  these files, you will be expected to explain why.
 - Your solution is expected to init, plan, and apply cleanly without any
   errors.
 - The VPC and security group community modules are used in `vpc.tf` and will 

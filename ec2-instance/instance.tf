@@ -1,3 +1,4 @@
+# do not modify this file, your module must implement this interface
 module "challenge" {
   source = "./instance/"
 
