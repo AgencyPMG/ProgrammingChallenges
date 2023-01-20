@@ -10,10 +10,8 @@ from datetime import datetime
 
 class CSVCombiner:
     def parseArgs(self, argv: list): #This parses the input args, creates a list for all of the valid files and returns it
-        
-        if len(argv) == 1: #This is the case when no parameters are input by user
-            print("No CSV parameters input by user")
-            return [] 
+        if len(argv) <= 1: #This is the case when no parameters are input by user
+            return "No valid CSV files input"
 
         returner = []
         for arg in argv[1:]:
@@ -24,33 +22,20 @@ class CSVCombiner:
                 if arg.lower().endswith(".csv"):
                     returner.append(arg)
                 else:
-                    print("File ", arg, " is not a .csv file and will not be combined")
-
+                    return "A non-csv file was input " + arg
             else:
-                print("File ", arg, " does not exist")
-        
-        if len(returner) == 0:
-            print("Warning: No valid CSV files were input")
+                return "A non-existing file was input " + arg
         
         return returner
-    
-    def generateFileString(self): #This creates a file name using the datetime for output file
-        now = datetime.now()
-        s1 = now.strftime("%m_%d_%Y_%H_%M_%S")
-        return "combined_" + s1 + ".csv"
 
     def combine(self, argv: list): 
         validList = self.parseArgs(argv)
-        if len(validList) == 0:
-            return #If no valid CSV files present, stop
-        fileName1 = self.generateFileString()
+        if type(validList) == str:
+            return validList
+
         #go throught the valid CSV files and combine them
-        #the 1st file will need to do the headers, rest dont need to do the headers
-        CHUNK_SIZE = 50000 #This is for settign a max bound for file load in memory
-        output_file = "output1.csv"
-        #create the initial file with headers
-        dataFrames = [] #list of all of my dataframes
-        for fileName in validList:
+        dataFrames = [] #list to hold data frames
+        for fileName in validList: #iterate through each csv
             myDf = dd.read_csv(fileName) #Read the data in the file
             myDf["filename"] = os.path.basename(fileName) #create the column for the filename
             dataFrames.append(myDf) #add to the dataframes list
@@ -60,15 +45,14 @@ class CSVCombiner:
 
         for df in dataFrames:
             pandasDf = df.compute() #Convert Dask --> Pandas
-
             if first:
-                pandasDf.to_csv(fileName1, index = False)
+                print(pandasDf.to_string(index = False))
                 first = False
             else:
-                pandasDf.to_csv(fileName1, index = False, header = False, mode = 'a')
-
+                print(pandasDf.to_string(index = False, header = False))
+                #pandasDf.to_csv(fileName1, index = False, header = False, mode = 'a')
+        return "pass"
 def main():
-    print("CSV Combiner for PMG Test")
     combiner = CSVCombiner() #Call the CSVcombiner and pass through the arguments
     combiner.combine(sys.argv)
 if __name__ == '__main__':
