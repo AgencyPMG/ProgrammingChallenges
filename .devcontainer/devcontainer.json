@@ -3,6 +3,7 @@
   "features": {
     "ghcr.io/christophermacgown/devcontainer-features/direnv:1": {},
     "ghcr.io/mickeahlinder/devcontainer-features/tfenv:1": {},
+    "ghcr.io/devcontainers/features/aws-cli:1": {},
     "ghcr.io/devcontainers/features/python:1": {
       "version": "3.11"
     }
