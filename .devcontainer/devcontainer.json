@@ -15,5 +15,6 @@
         "hashicorp.terraform"
       ]
     }
-  }
+  },
+  "onCreateCommand": "pip install -r terraform-live/requirements.txt"
 }
