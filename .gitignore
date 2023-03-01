@@ -29,3 +29,4 @@ tfplan
 *.tfstate
 *.tfstate.backup
 __pycache__
+test_data.json
