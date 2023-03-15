@@ -49,7 +49,7 @@ class TestS3Permissions:
         We should be able to put an object to the bucket
         """
         response = self.s3.put_object(
-            Bucket=s3_bucket_name,
+            Bucket=self.s3_bucket_name,
             Key=self.object_key,
             Body=self.object_body,
         )
@@ -59,7 +59,7 @@ class TestS3Permissions:
         We should be able to list objects in the bucket
         """
         response = self.s3.list_objects_v2(
-            Bucket=s3_bucket_name,
+            Bucket=self.s3_bucket_name,
             Prefix='testfile'
         )
         assert self.object_key == response['Contents'][0]['Key']
@@ -69,7 +69,7 @@ class TestS3Permissions:
         We should be able to get the object that we put earlier
         """
         response = self.s3.get_object(
-            Bucket=s3_bucket_name,
+            Bucket=self.s3_bucket_name,
             Key='testfile'
         )
         print(response)
