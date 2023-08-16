@@ -39,13 +39,17 @@ marketing_data contains ad impression and click data by date and location:
  Generate a query to gather the sum of revenue by store_location from the store_revenue table
 ​
 *  Question #3
- Merge these two datasets so we can see impressions, clicks, and revenue together by date
-and geo.
- Please ensure all records from each table are accounted for.
+ Merge these datasets so we can see impressions, clicks, cost, conversions, and revenue all together with the campaign name.
 ​
 * Question #4
- In your opinion, what is the most efficient store and why?
-​
-* Question #5 (Challenge)
- Generate a query to rank in order the top 10 revenue producing states
+ In your opinion, what is the most efficient state and why?
+
+Challenge Questions
+* Question #5
+  Generate a query that showcases the best da​y of the week (e.g Monday, Tuesday, Friday, etc.) to run ads?
+  
+* Question #6
+ Assuming the campaign name has the following naming convention `BusinessUnit_Tactic_category_stategy`
+ Generate a query to rank in order the top 3 Business Units by revenue?
+
 ​
