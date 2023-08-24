@@ -1,55 +1,50 @@
 # SQL Challenge
 
-The database contains two tables, store_revenue and marketing_data.  Refer to the two CSV
-files, store_revenue and marketing_data to understand how these tables have been created.
+The database contains three tables: marketing_performance, website_revenue, and campaign_info. Refer to the CSV
+files to understand how these tables have been created.
 
-store_revenue contains revenue by date, brand ID, and location:
+`marketing_performance` contains daily ad spend and performance metrics -- impression, clicks, and conversions -- by campaign_id and location:
+```sql
+create table marketing_data (
+ date datetime,
+ campaign_id varchar(50),
+ geo varchar(50),
+ cost float,
+ impressions float,
+ clicks float,
+ conversions float
+);
+```
 
- >  create table store_revenue (
- >     id int not null primary key auto_increment,
- >    date datetime,
- >    brand_id int,
- >    store_location varchar(250),
- >    revenue float  
- >  );
+`website_revenue` contains daily website revenue data by campaign_id and state:
+```sql
+create table website_revenue (
+ date datetime,
+ campaign_id varchar(50),
+ state varchar(2),
+ revenue float
+);
+```
 
-marketing_data contains ad impression and click data by date and location:
+`campaign_info` contains attributes for each campaign:
+```sql
+create table campaign_info (
+ id int not null primary key auto_increment,
+ name varchar(50),
+ status varchar(50),
+ last_updated_date datetime,
+ revenue float
+);
+```
 
-> create table marketing_data (
->  id int not null primary key auto_increment,
->  date datetime,
->  geo varchar(2),
->  impressions float,
->  clicks float
-> );
+### Please provide a SQL statement for each question
 
-### Please provide a SQL statement under each question.
+1. Write a query to get the sum of impressions by day.
+2. Write a query to get the top three revenue-generating states in order of best to worst. How much revenue did the third best state generate?
+3. Write a query that shows total cost, impressions, clicks, and revenue of each campaign. Make sure to include the campaign name in the output.
+4. Write a query to get the number of conversions of Campaign5 by state. Which state generated the most conversions for this campaign?
+5. In your opinion, which campaign was the most efficient, and why?
 
-* Question #0 (Already done for you as an example)
- Select the first 2 rows from the marketing data
-​
->  select *
->  from marketing_data
-> limit 2;
-​
-*  Question #1
- Generate a query to get the sum of the clicks of the marketing data
-​
-*  Question #2
- Generate a query to gather the sum of revenue by store_location from the store_revenue table
-​
-*  Question #3
- Merge these datasets so we can see impressions, clicks, cost, conversions, and revenue all together with the campaign name.
-​
-* Question #4
- In your opinion, what is the most efficient state and why?
+**Bonus Question**
 
-Challenge Questions
-* Question #5
-  Generate a query that showcases the best da​y of the week (e.g Monday, Tuesday, Friday, etc.) to run ads?
-  
-* Question #6
- Assuming the campaign name has the following naming convention `BusinessUnit_Tactic_category_stategy`
- Generate a query to rank in order the top 3 Business Units by revenue?
-
-​
+6. Write a query that showcases the best day of the week (e.g., Sunday, Monday, Tuesday, etc.) to run ads.
