@@ -1,0 +1,5 @@
+SELECT DATE(date_column) AS day,
+  SUM(impressions_column) AS total_impressions
+FROM Marketing_Performance
+GROUP BY DATE(date_column)
+ORDER BY DATE(date_column);
