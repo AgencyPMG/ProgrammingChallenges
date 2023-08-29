@@ -36,6 +36,12 @@ create table campaign_info (
 );
 ```
 
+### Challenge Submit Instructions
+
+1. Fork the repository
+2. Answer the questions below in a single SQL file - e.g answers.sql
+3. Provide Link to Forked Repository to PMG Careers Team
+
 ### Please provide a SQL statement for each question
 
 1. Write a query to get the sum of impressions by day.
@@ -47,3 +53,5 @@ create table campaign_info (
 **Bonus Question**
 
 6. Write a query that showcases the best day of the week (e.g., Sunday, Monday, Tuesday, etc.) to run ads.
+
+
