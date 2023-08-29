@@ -32,10 +32,15 @@ create table campaign_info (
  id int not null primary key auto_increment,
  name varchar(50),
  status varchar(50),
- last_updated_date datetime,
- revenue float
+ last_updated_date datetime
 );
 ```
+
+### Challenge Submit Instructions
+
+1. Fork the repository
+2. Answer the questions below in a single SQL file - e.g answers.sql
+3. Provide Link to Forked Repository to PMG Careers Team
 
 ### Please provide a SQL statement for each question
 
@@ -48,3 +53,5 @@ create table campaign_info (
 **Bonus Question**
 
 6. Write a query that showcases the best day of the week (e.g., Sunday, Monday, Tuesday, etc.) to run ads.
+
+
