@@ -32,8 +32,7 @@ create table campaign_info (
  id int not null primary key auto_increment,
  name varchar(50),
  status varchar(50),
- last_updated_date datetime,
- revenue float
+ last_updated_date datetime
 );
 ```
 
