@@ -40,7 +40,7 @@ create table campaign_info (
 
 1. Fork the repository
 2. Answer the questions below in a single SQL file - e.g answers.sql
-3. Provide Link to Forked Repository to PMG Careers Team
+3. Provide Link to Forked Repository to PMG Talent Acquisition Team
 
 ### Please provide a SQL statement for each question
 
