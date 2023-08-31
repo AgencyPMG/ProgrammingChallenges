@@ -1,0 +1,8 @@
+SELECT
+    campaign_id,
+    SUM(cost) AS total_cost,
+    SUM(impressions) AS total_impressions,
+    SUM(clicks) AS total_clicks,
+    SUM(revenue) AS total_revenue
+FROM marketing_performance
+GROUP BY campaign_id;
