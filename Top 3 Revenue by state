@@ -1,0 +1,5 @@
+SELECT state, SUM(revenue) AS total_revenue
+FROM revenue
+GROUP BY state
+ORDER BY total_revenue DESC
+LIMIT 3;
