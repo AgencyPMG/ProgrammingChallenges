@@ -1,0 +1,9 @@
+SELECT
+    DAYNAME(ad_date) AS day_of_week,
+    AVG(click_through_rate) AS avg_ctr,
+    AVG(conversion_rate) AS avg_conversion_rate,
+    AVG(revenue) AS avg_revenue
+FROM website_revenue
+GROUP BY day_of_week
+ORDER BY avg_revenue DESC
+LIMIT 1;
