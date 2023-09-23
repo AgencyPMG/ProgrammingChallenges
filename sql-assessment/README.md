@@ -46,7 +46,7 @@ create table campaign_info (
 
 1. Write a query to get the sum of impressions by day.
 2. Write a query to get the top three revenue-generating states in order of best to worst. How much revenue did the third best state generate?
-3. Write a query that shows total cost, impressions, clicks, and revenue of each campaign. Make sure to include the campaign name in the output.
+3. Write a query that shows total cost, impressions, clicks, and revenue of each campaign. Make sure to include the campaign name in the output. 
 4. Write a query to get the number of conversions of Campaign5 by state. Which state generated the most conversions for this campaign?
 5. In your opinion, which campaign was the most efficient, and why?
 
