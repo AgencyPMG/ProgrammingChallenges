@@ -1,0 +1,8 @@
+SELECT
+    state,
+    COUNT(*) AS conversions_count
+FROM conversions
+WHERE campaign_name = 'Campaign5'
+GROUP BY state
+ORDER BY conversions_count DESC
+LIMIT 1;
