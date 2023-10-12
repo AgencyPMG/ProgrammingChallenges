@@ -1,0 +1,37 @@
+-- Question 1
+SELECT sum(impression) AS ImpSum
+FROM marketing_data
+GROUP BY datetime
+
+-- Question 2
+SELECT sum(revenue) AS TotalRevenue, state
+FROM website_revenue
+ORDER BY TotalRevenue DESC
+
+-- The third best state is OH, who generated a revenue of 37577
+
+-- Question 3
+SELECT m.cost, m.clicks, m.impression, w.revenue, c.name
+FROM marketing_data m
+INNER JOIN website_revenue w ON m.campaign_id = w.campaign_id
+INNER JOIN campaign_info c ON m.campaign_id = c.id
+
+-- Question 4
+SELECT w.state, sum(m.conversions) AS SumCon
+FROM marketing_data m
+INNER JOIN website_revenue w ON m.campaign_id = w.campaign_id
+INNER JOIN campaign_info c ON m.campaign_id = c.id
+
+GA generated the most conversions for campaing5, they had a total of 672 conversions
+  
+-- Question 5
+/*
+Just from the number of impressions, clicks, and conversions, campaign3 have the most amount. With a total of 19785 impressions, 
+14506 clicks, and 4451 conversions. However, if we dig deeper and investigate the cost of each campaign, we can see that campaign3 also
+has the most funds being put into.
+Therefore, if I want to know which campaign is the most efficient, I divided the number of impressions, clicks, and conversions by the total
+cost of the campaign. I found that campaign4 have a higher value in impressions per dollar and conversions per dollar. While campaign1 
+has the highest clicks per dollar. Therefore, in my opinion, the most efficient campaign is campaign4.
+*/
+
+
