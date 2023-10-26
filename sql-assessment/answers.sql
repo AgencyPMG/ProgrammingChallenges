@@ -30,6 +30,8 @@ ORDER BY
 LIMIT 3
 OFFSET 2;
 
+-- The third best state (OH) generated $37577 in revenue.
+
 -- Q3
 WITH CampaignSummary AS (
     SELECT
@@ -80,6 +82,7 @@ GROUP BY
 ORDER BY
     total_conversions DESC;
 
+-- Georgia generated the most conversions with a total of 672.
 
 -- Q5
 WITH CampaignMetrics AS (
