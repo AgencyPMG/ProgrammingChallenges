@@ -144,3 +144,5 @@ GROUP BY
     day_of_week
 ORDER BY
     avg_ctr DESC;
+
+-- The best day of the week to run ads would be Wednesday with the highest average click through rate of about 1.098.
