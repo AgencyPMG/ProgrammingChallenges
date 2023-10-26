@@ -82,7 +82,34 @@ ORDER BY
 
 
 -- Q5
--- The campaign that was the most efficient would be Campaign 3 because although it is the most costly, it generates the most number of total clicks and total impression resulting in the most revenue compared to the other 4 campaigns.
+WITH CampaignMetrics AS (
+    SELECT
+        ci.name AS campaign_name,
+        SUM(mp.conversions) AS total_conversions,
+        SUM(mp.cost) AS total_cost
+    FROM
+        `pmg-sql-assessment.datasets.campaign_info` AS ci
+    LEFT JOIN
+        `pmg-sql-assessment.datasets.marketing_performance` AS mp
+    ON
+        ci.id = mp.campaign_id
+    GROUP BY
+        campaign_name
+)
+
+SELECT
+    campaign_name,
+    SUM(total_conversions) AS total_conversions,
+    SUM(total_cost) AS total_cost,
+    SUM(total_conversions) / SUM(total_cost) AS roas
+FROM
+    CampaignMetrics
+GROUP BY
+    campaign_name
+ORDER BY
+    roas DESC;
+
+-- Looking at efficiency of marketing campaigns, we can look at return on ad spend (ROAS). This calculates the revenue generated per unit of advertising. Looking at the results, Campaign 4 has the highest ROAS of about 2.34 compared to the other four campaigns.
 
 -- Bonus
 WITH DayOfWeekMetrics AS (
