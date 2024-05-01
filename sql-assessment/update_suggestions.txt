@@ -1,0 +1,27 @@
+Poonam Patil
+Q: May be like additional Bonus question.
+For campaigns that spent more than $1500 in total, find the correlation between daily ad spend and daily revenue.
+This question can be help us to see  CTE/Subquery and Join functions usage.
+
+Stephen Frazier
+New SQL Questions would be nice, but also overall re-thinking the approach, data, and how to capture some technical skills that can be talked to during an interview
+
+Poonam Patil
+Ok I see.
+ I read an article once where there was discussion around interviews that is based on Scenario Based Analysis where candidate is given some business problem and using SQL they are asked to either OPTIMIZE or tune the query.
+We also come lot of times in our day to day about finding errors and troubleshooting. We can give some queries with predefined error and can test their debugging, troubleshooting skills and attention to detail skill.
+
+Stephen Frazier
+Those are great ideas, let's see what others come up with and we can build a new approach to the assessment. (edited) 
+
+Joshua Dienye
+I like Poonam's idea! Could we also create the data insert queries. So they can have actual data to play with. This would also help with the debugging aspect.
+
+Jonathan Walder
+I am not a fan of coding tests, so I like the idea of giving them a business problem or problems, some data. Tell them to make recommendations on the business problem(s) and back it up with data. Optimization exercises can be interesting as can debugging, give them bad data or bad sql and have them figure out what is wrong. Make sure the issues are subtle enough.
+
+James Ratcliffe
+I like the scenario based approach. I would also like to see some debugging aspects to the assessment.
+
+Adit Rathi
+We should add some case statement based questions and/or split part function / basic regex?
